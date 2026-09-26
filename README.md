@@ -6,13 +6,66 @@
 
 Análisis exploratorio de datos dsobre mensajes de un grupo de whatsapp
 
+## Ejecutar la libreta
+
+La libreta principal se encuentra en `notebooks/main.ipynb`. Requiere Python
+3.13.2, según se define en `pyproject.toml`.
+
+1. Clona el repositorio y entra al directorio del proyecto.
+
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd MCD_TareaGrupoWhatsapp
+   ```
+
+2. Crea y activa un entorno virtual.
+
+   ```bash
+   python3.13 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+   En Windows, actívalo con:
+
+   ```powershell
+   .venv\Scripts\Activate.ps1
+   ```
+
+3. Instala las dependencias del proyecto.
+
+   ```bash
+   python -m pip install --upgrade pip
+   python -m pip install -r requirements.txt
+   ```
+
+4. Abre `notebooks/main.ipynb` desde VS Code con la extensión de Jupyter, o
+   instala JupyterLab y ejecútalo desde la raíz del proyecto:
+
+   ```bash
+   python -m pip install jupyterlab
+   python -m jupyter lab
+   ```
+
+5. En la libreta, selecciona el intérprete del entorno `.venv` y ejecuta las
+   celdas en orden, de arriba hacia abajo. La primera celda descarga el modelo
+   de español de spaCy (`es_core_news_sm`).
+
+6. La celda `%run ../conf/conf.py` descarga el archivo del chat desde OneDrive
+   y lo guarda como `data/raw/chat.txt`. Se necesita conexión a Internet y
+   acceso al enlace configurado en `conf/conf.py`. El archivo de chat no se
+   incluye en el repositorio por contener información privada.
+
+Al terminar la fase de preparación, se genera el archivo anonimizado
+`data/processed/chat_anonimizado.csv`. Las celdas posteriores realizan el
+análisis exploratorio y muestran las gráficas.
+
 ## Project Organization
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
 ├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
 ├── README.md          <- The top-level README for developers using this project.
-├── data
+├── dataßß
 │   ├── external       <- Data from third party sources.
 │   ├── interim        <- Intermediate data that has been transformed.
 │   ├── processed      <- The final, canonical data sets for modeling.
@@ -58,4 +111,3 @@ Análisis exploratorio de datos dsobre mensajes de un grupo de whatsapp
 ```
 
 --------
-
